@@ -1,0 +1,15 @@
+{
+  "name": "soreview-place-id",
+  "version": "0.0.1",
+  "description": "Extract Google Place ID form Google Maps URL",
+  "private": true,
+  "dependencies": {
+    "request": "^2.88.0",
+    "serverless": "^1.32.0",
+    "serverless-domain-manager": "^2.6.5"
+  },
+  "scripts": {
+    "invoke-local": "serverless invoke local --function placeIdExtract",
+    "deploy": "serverless deploy -v"
+  }
+}
