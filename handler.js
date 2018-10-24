@@ -16,7 +16,7 @@ module.exports.hello = function (event, context, callback) {
 };
 
 
-function extract(url) {
+function extract(url = '') {
   const request = require('request');
   return new Promise((resolve) => {
     request(url, { json: false }, (err, res, body) => {
@@ -30,8 +30,7 @@ function extract(url) {
           });
         }
 
-        const result = body.match(
-          /(?<=;window\.APP_INITIALIZATION_STATE=+).*?(?=;window.APP_FLAGS)/gs);
+        const result = body.match(/(?<=;window\.APP_INITIALIZATION_STATE=+).*?(?=;window.APP_FLAGS)/gs);
         const json = JSON.parse(result)[3][6];
         const placeId = JSON.parse(json.toString().substring(4))[0][1][0][14][78];
 
@@ -54,5 +53,6 @@ function extract(url) {
 }
 
 module.exports.hello2 = async (event) => {
-  return await extract(event.url);
+  const body = JSON.parse(event.body);
+  return await extract(body.url);
 };

@@ -4,7 +4,9 @@
   "description": "Extract Google Place ID form Google Maps URL",
   "private": true,
   "dependencies": {
-    "request": "^2.88.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
     "serverless": "^1.32.0",
     "serverless-domain-manager": "^2.6.5"
   },
