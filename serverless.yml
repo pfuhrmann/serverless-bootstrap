@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: serverless-test # NOTE: update this with your service name
+service: serverless-starter # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -55,24 +55,21 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-
+  first:
+    handler: handlers/first.hello
+    events:
+      - http:
+          path: first
+          method: get
+  second:
+    handler: handlers/second.hello
+    events:
+      - http:
+          path: second
+          method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-    events:
-      - http:
-          path: hello
-          method: post
-          cors: true
-  hello2:
-    handler: handler.hello2
-    events:
-      - http:
-          path: hello2
-          method: post
-          cors: true
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
 #      - sns: greeter-topic
@@ -110,3 +107,15 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
+    includeModules: true   # Node modules configuration for packaging
+
+package:
+  individually: true

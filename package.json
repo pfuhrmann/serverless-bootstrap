@@ -1,17 +1,24 @@
 {
-  "name": "soreview-place-id",
-  "version": "0.0.1",
-  "description": "Extract Google Place ID form Google Maps URL",
-  "private": true,
+  "name": "serverless-bootstrap",
+  "version": "0.1.0",
+  "description": "Serverless starter project running in docker",
+  "author": "Patrik Fuhrmann <contact@patrikfuhrmann.com>",
+  "license": "MIT",
   "dependencies": {
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-source-map-support": "^2.0.1",
+    "babel-preset-env": "^1.6.0",
     "serverless": "^1.32.0",
-    "serverless-domain-manager": "^2.6.5"
+    "serverless-offline": "^3.30.0",
+    "serverless-webpack": "^5.2.0",
+    "webpack": "^4.23.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "invoke-local": "serverless invoke local --function placeIdExtract",
-    "deploy": "serverless deploy -v"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
