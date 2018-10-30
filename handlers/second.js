@@ -1,16 +1,20 @@
-'use strict';
 
-export const hello = (event, context, callback) => {
-  console.log(event); // Contains incoming request data (e.g., query params,
-                      // headers and more)
+function handleHello(event) {
+  return new Promise((resolve) => {
+    const response = {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({ id: 'second', event }),
+    };
 
-  const response = {
-    statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: JSON.stringify({ id: 'second', event }),
-  };
+    resolve(response);
+  });
+}
 
-  callback(null, response);
+const hello = async (event) => {
+  await handleHello(event);
 };
+
+export default hello;

@@ -1,17 +1,24 @@
 {
   "name": "serverless-bootstrap",
   "version": "0.1.0",
-  "description": "Serverless starter project running in docker",
+  "description": "Serverless starter project integrated with babel, jest, eslint and more",
   "author": "Patrik Fuhrmann <contact@patrikfuhrmann.com>",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.88.0"
+    "babel-runtime": "^6.26.0",
+    "source-map-support": "^0.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-source-map-support": "^2.0.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "serverless": "^1.32.0",
     "serverless-offline": "^3.30.0",
     "serverless-webpack": "^5.2.0",
